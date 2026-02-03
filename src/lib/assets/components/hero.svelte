@@ -1,6 +1,6 @@
 <script>
   import { Github, Linkedin, Mail, Youtube, ChevronDown } from "@lucide/svelte";
-
+  import me from '$lib/assets/images/einfotovonmir.jpeg';
   let activeIndex = $state(null);
 
   const items = [
@@ -30,7 +30,7 @@
 
 <section class="h-[calc(100vh-12rem)] grid grid-cols-1 md:grid-cols-2  text-white">
   <div class="p-12 flex flex-col  justify-center">
-      <img src="/images/einfotovonmir.jpeg" alt="Myself" class="my-4 md:my-8 rounded-4xl" />
+      <img src="{me}" alt="Myself" class="my-4 md:my-8 rounded-4xl" />
       <h1 class="text-2xl px-2 font-thin">Jacob Ong </h1>
       <small class="text-[#97AED1] px-2 py-2">Machine Learning Engineer | AWS Certified AI Practitioner</small>
 
