@@ -4,13 +4,13 @@
 
   <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-8">
   <div class="flex flex-col p-4 gap-y-4">
-    <img src="src/lib/assets/images/1.jpg" alt="placeholder " />
+    <img src="/images/1.jpg" alt="placeholder " />
     <h1>Project Title</h1>
     <small>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae vitae consequuntur minus quis molestiae nobis illo quae consequatur, odit rerum?</small>
 
   </div>
   <div class="flex flex-col p-4 gap-y-4">
-    <img src="src/lib/assets/images/1.jpg" alt="placeholder " />
+    <img src="/images/1.jpg" alt="placeholder " />
     <h1>Project Title</h1>
     <small>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae vitae consequuntur minus quis molestiae nobis illo quae consequatur, odit rerum?</small>
   </div>
