@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import type { RouteId } from '$app/types';
-	import { fly } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 
 	let { isOpen = $bindable(false) } = $props();
@@ -90,6 +90,7 @@
 
 	{#if isOpen}
 		<div
+			transition:fade={{ duration: 300 }}
 			class="fixed inset-0 z-40 flex flex-col justify-center bg-[#595F34] font-sans text-[#f1f0ec]"
 		>
 			<ul class="space-y-4 pr-8 text-right text-7xl font-bold md:pr-16 md:text-9xl lg:pr-32">
