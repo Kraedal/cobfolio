@@ -10,9 +10,14 @@
 </svelte:head>
 
 <section
-	class="mx-auto flex min-h-[calc(100svh-8rem)] -mt-20 max-w-5xl flex-col items-center justify-center gap-8 px-6 py-16 text-center md:px-12 md:py-24"
+	class="mx-auto -mt-20 flex min-h-[calc(100svh-8rem)] max-w-5xl flex-col items-center justify-center gap-8 px-6 py-16 text-center md:px-12 md:py-24"
 >
-	<img title="Return to Lyanne" src={bunny} alt="A confused bunny" class="w-48 max-w-full md:w-64" />
+	<img
+		title="Return to Lyanne"
+		src={bunny}
+		alt="A confused bunny"
+		class="w-48 max-w-full md:w-64"
+	/>
 	<div>
 		<p class="text-sm tracking-[0.25em] text-[#595F34] uppercase">{page.status}</p>
 		<h1 class="mt-4 text-4xl tracking-tight md:text-6xl">Oops, wrong burrow.</h1>
