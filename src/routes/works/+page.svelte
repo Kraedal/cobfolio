@@ -3,8 +3,11 @@
 </script>
 
 <svelte:head>
-	<title>Works</title>
-	<meta name="description" content="A collection of my projects through the years" />
+	<title>Projects</title>
+	<meta
+		name="description"
+		content="Explore selected projects built by software engineer Jacob Ong."
+	/>
 </svelte:head>
 
 <Projects />

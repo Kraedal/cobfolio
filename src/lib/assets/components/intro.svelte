@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Me from '$lib/assets/images/me.png';
+	import Me from '$lib/assets/images/me.webp';
 </script>
 
 <div class="flex flex-col">

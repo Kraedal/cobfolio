@@ -55,8 +55,11 @@
 </script>
 
 <svelte:head>
-	<title>Contact Me</title>
-	<meta name="description" content="Get in touch with me" />
+	<title>Contact</title>
+	<meta
+		name="description"
+		content="Get in touch with Jacob Ong about a project, collaboration, or idea."
+	/>
 </svelte:head>
 
 <section

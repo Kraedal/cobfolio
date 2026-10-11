@@ -8,11 +8,52 @@
 	import Footer from '$lib/assets/components/footer.svelte';
 
 	let { children } = $props();
+	const siteUrl = 'https://jacobong.dev';
+	const siteTitle = 'Jacob Ong — Software Engineer';
+	const siteDescription =
+		'Jacob Ong is a software engineer building thoughtful web applications with SvelteKit and modern tools.';
+	const structuredData = {
+		'@context': 'https://schema.org',
+		'@graph': [
+			{
+				'@type': 'Person',
+				name: 'Jacob Ong',
+				url: siteUrl,
+				jobTitle: 'Software Engineer',
+				sameAs: [
+					'https://github.com/Kraedal',
+					'https://www.linkedin.com/in/jacob-ong/',
+					'https://bsky.app/profile/jacobong.dev'
+				]
+			},
+			{
+				'@type': 'WebSite',
+				name: siteTitle,
+				url: siteUrl,
+				description: siteDescription
+			}
+		]
+	};
+	const structuredDataMarkup = `\u003cscript type="application/ld+json">${JSON.stringify(structuredData)}\u003c/script>`;
 </script>
 
 <svelte:head>
 	<link rel="icon" href={logo} />
-	<title>Cob</title>
+	<link rel="canonical" href={`${siteUrl}${page.url.pathname}`} />
+	<meta name="description" content={siteDescription} />
+	<meta property="og:site_name" content="Jacob Ong" />
+	<meta property="og:title" content={siteTitle} />
+	<meta property="og:description" content={siteDescription} />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={`${siteUrl}${page.url.pathname}`} />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={siteTitle} />
+	<meta name="twitter:description" content={siteDescription} />
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+	{@html structuredDataMarkup}
+	{#if page.url.pathname === '/'}
+		<link rel="preload" href={liquid} as="video" type="video/webm" fetchpriority="high" />
+	{/if}
 </svelte:head>
 
 {#if page.url.pathname === '/'}
@@ -23,6 +64,7 @@
 			muted
 			loop
 			playsinline
+			preload="auto"
 			aria-hidden="true"
 		>
 			<source src={liquid} type="video/webm" />
