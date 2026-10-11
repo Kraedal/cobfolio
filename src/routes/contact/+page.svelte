@@ -22,15 +22,24 @@
 			});
 
 			if (response.ok) {
-				toast = { message: 'Thank you for your message! I\'ll get back to you soon.', type: 'success' };
+				toast = {
+					message: "Thank you for your message! I'll get back to you soon.",
+					type: 'success'
+				};
 				name = '';
 				email = '';
 				message = '';
 			} else {
-				toast = { message: 'Sorry, there was an error sending your message. Please try again.', type: 'error' };
+				toast = {
+					message: 'Sorry, there was an error sending your message. Please try again.',
+					type: 'error'
+				};
 			}
-		} catch (error) {
-			toast = { message: 'Sorry, there was an error sending your message. Please try again.', type: 'error' };
+		} catch {
+			toast = {
+				message: 'Sorry, there was an error sending your message. Please try again.',
+				type: 'error'
+			};
 		} finally {
 			isSubmitting = false;
 			// Auto-dismiss toast after 5 seconds
@@ -50,56 +59,68 @@
 	<meta name="description" content="Get in touch with me" />
 </svelte:head>
 
-<div class="contact-container">
-	<h1>Contact Me</h1>
-	<p>Feel free to reach out if you'd like to work together or just say hello!</p>
+<section
+	class="relative mx-auto -mt-20 min-h-[calc(100svh-8rem)] max-w-5xl overflow-hidden px-6 py-16 md:px-12 md:py-24"
+>
+	<div class="contact-block contact-block-one"></div>
+	<div class="contact-block contact-block-two"></div>
+	<div class="contact-block contact-block-three"></div>
 
-	<form onsubmit={handleSubmit} class="contact-form">
-		<div class="form-group">
-			<label for="name">Name</label>
-			<input
-				type="text"
-				id="name"
-				value={name}
-				oninput={(e) => name = (e.target as HTMLInputElement).value}
-				required
-				placeholder="Your Name"
-			/>
-		</div>
+	<div class="relative z-10 mx-auto max-w-2xl text-white">
+		<p class="mb-4 text-sm tracking-[0.25em] text-[#595F34] uppercase">Let's talk</p>
+		<h1 class="text-4xl tracking-tight md:text-6xl">Have a project in mind?</h1>
+		<p class="mt-6 max-w-xl text-base leading-7 text-white/75">
+			Feel free to reach out if you'd like to work together, have a question, or just want to say
+			hello.
+		</p>
 
-		<div class="form-group">
-			<label for="email">Email</label>
-			<input
-				type="email"
-				id="email"
-				value={email}
-				oninput={(e) => email = (e.target as HTMLInputElement).value}
-				required
-				placeholder="your.email@example.com"
-			/>
-		</div>
+		<form onsubmit={handleSubmit} class="contact-form mt-12">
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input
+					type="text"
+					id="name"
+					value={name}
+					oninput={(e) => (name = (e.target as HTMLInputElement).value)}
+					required
+					placeholder="Your name"
+				/>
+			</div>
 
-		<div class="form-group">
-			<label for="message">Message</label>
-			<textarea
-				id="message"
-				value={message}
-				oninput={(e) => message = (e.target as HTMLTextAreaElement).value}
-				required
-				placeholder="Your message here..."
-				rows="5"
-			></textarea>
-		</div>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input
+					type="email"
+					id="email"
+					value={email}
+					oninput={(e) => (email = (e.target as HTMLInputElement).value)}
+					required
+					placeholder="you@example.com"
+				/>
+			</div>
 
-		<button type="submit" disabled={isSubmitting} class="submit-btn">
-			{#if isSubmitting}
-				Sending...
-			{:else}
-				Send Message
-			{/if}
-		</button>
-	</form>
-</div>
+			<div class="form-group">
+				<label for="message">Message</label>
+				<textarea
+					id="message"
+					value={message}
+					oninput={(e) => (message = (e.target as HTMLTextAreaElement).value)}
+					required
+					placeholder="Tell me a little about your project..."
+					rows="5"
+				></textarea>
+			</div>
+
+			<button type="submit" disabled={isSubmitting} class="submit-btn">
+				{#if isSubmitting}
+					Sending...
+				{:else}
+					Send message <span aria-hidden="true">↗</span>
+				{/if}
+			</button>
+		</form>
+	</div>
+</section>
 
 {#if toast}
 	<div class="toast-container">
@@ -111,21 +132,45 @@
 {/if}
 
 <style>
-	.contact-container {
-		max-width: 600px;
-		margin: 0 auto;
-		padding: 2rem;
+	.contact-block {
+		position: absolute;
+		z-index: 0;
+		width: 8rem;
+		height: 8rem;
+		background: #595f34;
+		opacity: 0.12;
+		pointer-events: none;
+		animation: pestoFloat 8s ease-in-out infinite;
 	}
 
-	h1 {
-		text-align: center;
-		margin-bottom: 1rem;
+	.contact-block-one {
+		top: 18%;
+		left: 2%;
+		transform: rotate(14deg);
 	}
 
-	p {
-		text-align: center;
-		margin-bottom: 2rem;
-		color: #666;
+	.contact-block-two {
+		top: 48%;
+		right: 1%;
+		width: 6rem;
+		height: 6rem;
+		transform: rotate(-18deg);
+		animation-delay: -2s;
+	}
+
+	.contact-block-three {
+		bottom: 8%;
+		left: 12%;
+		width: 4rem;
+		height: 4rem;
+		transform: rotate(32deg);
+		animation-delay: -4s;
+	}
+
+	.form-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
 	}
 
 	.contact-form {
@@ -134,29 +179,32 @@
 		gap: 1.5rem;
 	}
 
-	.form-group {
-		display: flex;
-		flex-direction: column;
-	}
-
 	label {
-		margin-bottom: 0.5rem;
+		font-size: 0.875rem;
 		font-weight: 500;
 	}
 
 	input,
 	textarea {
-		padding: 0.75rem;
-		border: 1px solid #ddd;
-		border-radius: 4px;
+		width: 100%;
+		padding: 0.875rem 1rem;
+		border: 1px solid rgb(209 198 174 / 55%);
+		border-radius: 0.25rem;
+		background: #595f34;
+		color: white;
 		font-size: 1rem;
 		transition: border-color 0.3s;
+	}
+
+	input::placeholder,
+	textarea::placeholder {
+		color: rgb(255 255 255 / 65%);
 	}
 
 	input:focus,
 	textarea:focus {
 		outline: none;
-		border-color: #97AED1;
+		border-color: #d1c6ae;
 	}
 
 	textarea {
@@ -165,11 +213,11 @@
 	}
 
 	.submit-btn {
-		padding: 0.75rem 1.5rem;
-		background-color: #97AED1;
-		color: white;
+		padding: 0.875rem 1.5rem;
+		background-color: #595f34;
+		color: #d1c6ae;
 		border: none;
-		border-radius: 4px;
+		border-radius: 0.25rem;
 		font-size: 1rem;
 		cursor: pointer;
 		transition: background-color 0.3s;
@@ -177,7 +225,7 @@
 	}
 
 	.submit-btn:hover:not(:disabled) {
-		background-color: #97AED1;
+		background-color: #424626;
 	}
 
 	.submit-btn:disabled {
@@ -209,14 +257,14 @@
 		background-color: #d4edda;
 		color: #155724;
 		border: 1px solid #c3e6cb;
-    border-radius: 24px;
+		border-radius: 24px;
 	}
 
 	.toast-error {
 		background-color: #000000;
 		color: #fcfcf0;
 		border: 1px solid #f5c6cb;
-    border-radius: 24px;
+		border-radius: 24px;
 	}
 
 	.toast-close {
@@ -244,6 +292,29 @@
 		to {
 			transform: translateX(0);
 			opacity: 1;
+		}
+	}
+
+	@keyframes pestoFloat {
+		0%,
+		100% {
+			margin-top: 0;
+		}
+		50% {
+			margin-top: 1rem;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.contact-block {
+			opacity: 0.06;
+			transform: scale(0.65);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.contact-block {
+			animation: none;
 		}
 	}
 </style>
