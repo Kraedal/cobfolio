@@ -8,7 +8,9 @@
 	>
 		<div class="flex min-w-0 flex-2 flex-col justify-center gap-y-8">
 			<h1 class="text-xl text-[#595F34]">Hi, I'm Jacob .ᐟ.ᐟ</h1>
-			<small class="text-md max-w-full min-w-0 leading-7 font-extralight wrap-break-word">
+			<small
+				class="text-md max-w-full min-w-0 leading-7 font-extralight wrap-break-word text-[#595F34]"
+			>
 				I build applications using sveltekit and constantly exploring machine learning tools and
 				technologies. Currently working at <b>Kyrios Solutions Inc</b> as a Product and Tech Solutions
 				Specialist.

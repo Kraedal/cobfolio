@@ -13,7 +13,7 @@
 	const navLinks: { name: string; href: StaticRouteId }[] = [
 		{ name: 'Home', href: '/' },
 		{ name: 'Projects', href: '/works' },
-		{ name: 'About', href: '/about' },
+		{ name: 'About Me', href: '/about' },
 		{ name: 'Contact', href: '/contact' }
 	];
 </script>

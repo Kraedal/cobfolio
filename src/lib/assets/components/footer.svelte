@@ -1,7 +1,7 @@
 <footer
-	class="mx-auto mb-8 flex w-full max-w-4xl flex-row items-center justify-between gap-4 overflow-hidden px-6 pb-6 md:px-12 md:pb-0"
+	class="mx-auto mb-4 flex w-full max-w-4xl flex-row items-center justify-between gap-4 overflow-hidden px-6 pb-6 md:px-12 md:pb-0"
 >
-	<small>© 2026 jacobong.dev</small>
+	<small class="text-[#424626]">© 2026 jacobong.dev</small>
 	<div class="flex flex-row items-center gap-x-6">
 		<a
 			href="https://bsky.app/profile/jacobong.dev"

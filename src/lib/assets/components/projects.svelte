@@ -26,10 +26,10 @@
 	];
 </script>
 
-<section class="mx-auto -mt-20 min-h-[calc(100svh-8rem)] max-w-5xl px-6 py-16 md:px-12 md:py-24">
+<section class="mx-auto -mt-20 min-h-[calc(100svh-8rem)] max-w-4xl px-6 py-16 md:px-12 md:py-24">
 	<header class="mb-10 flex items-end justify-between gap-6">
 		<div>
-			<p class="mb-3 text-sm tracking-widest uppercase opacity-70">Selected work</p>
+			<p class="mb-3 text-sm tracking-widest text-[#595F34] uppercase opacity-70">Selected work</p>
 			<h1 class="text-3xl tracking-tight md:text-5xl">Projects</h1>
 		</div>
 		<p class="hidden max-w-xs text-right text-sm leading-6 opacity-70 sm:block">
